@@ -24,7 +24,7 @@ repos:
           --config=.flake8,
           --max-line-length=100,
         ]
-        exclude: .git|__pycache__
+        exclude: .git|__pycache__|migrations
         additional_dependencies:
           - flake8-builtins>=2.5.0
           - flake8-debugger>=4.1.2
