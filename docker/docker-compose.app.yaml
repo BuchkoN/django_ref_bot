@@ -1,0 +1,19 @@
+version: '3.9'
+
+name: django-app
+
+services:
+  web_app:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+    container_name: web_app
+    ports:
+      - 8000:8000
+    volumes:
+      - ..:/app/
+    env_file:
+      - ../.env
+    depends_on:
+      - storage_app
+    command: "python manage.py runserver 0.0.0.0:8000"
