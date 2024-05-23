@@ -1,6 +1,6 @@
 version: '3.9'
 
-name: django-app
+name: django-ref-bot
 
 services:
   web_app:

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "django-app"
+name = "django-ref-bot"
 version = "0.1.0"
 description = ""
 authors = ["nikitabucko <buchkonikita97@gmail.com>"]

@@ -14,7 +14,7 @@ app-down:
 
 .PHONY: app-logs
 app-logs:
-	$(DC) -f $(APP_FILE) logs -f
+	$(DC) -f $(APP_FILE) -f $(STORAGE_FILE) logs -f
 
 .PHONY: app-shell
 app-shell:
