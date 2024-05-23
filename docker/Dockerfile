@@ -19,6 +19,7 @@ RUN apt update -y && \
     apt install -y python3-dev \
     gcc \
     libpq-dev \
+    gettext \
     musl-dev && \
     pip install --upgrade pip && pip install --no-cache-dir -r requirements.dev.txt
 

@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-23 14:49+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: app/core/accounts/admin.py:45
+msgid "Profile"
+msgstr "Профиль"
+
+#: app/core/accounts/admin.py:64
+msgid "Search by ID, Telegram ID and username"
+msgstr "Поиск по ID, Telegram ID и имени пользователя"
+
+#: app/core/accounts/apps.py:7 app/core/accounts/models.py:69
+msgid "Users"
+msgstr "Пользователи"
+
+#: app/core/accounts/models.py:14
+msgid "Did not pass the funnel"
+msgstr "Не прошел воронку"
+
+#: app/core/accounts/models.py:15
+msgid "Passed the funnel"
+msgstr "Прошел воронку"
+
+#: app/core/accounts/models.py:16
+msgid "Purchased a free product"
+msgstr "Приобрел бесплатный продукт"
+
+#: app/core/accounts/models.py:17
+msgid "Purchased a paid product"
+msgstr "Приобрел платный продукт"
+
+#: app/core/accounts/models.py:23
+msgid "Russian"
+msgstr "Русский"
+
+#: app/core/accounts/models.py:24
+msgid "English"
+msgstr "Английский"
+
+#: app/core/accounts/models.py:43
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: app/core/accounts/models.py:44
+msgid "Date joined"
+msgstr "Дата регистрации"
+
+#: app/core/accounts/models.py:46
+msgid "Referral link"
+msgstr "Реферальная ссылка"
+
+#: app/core/accounts/models.py:47
+msgid "Wallet address"
+msgstr "Адрес кошелька"
+
+#: app/core/accounts/models.py:49
+msgid "Interface language"
+msgstr "Язык интерфейса"
+
+#: app/core/accounts/models.py:54
+msgid "Status"
+msgstr "Статус"
+
+#: app/core/accounts/models.py:59
+msgid "Staff status"
+msgstr "Статус персонала"
+
+#: app/core/accounts/models.py:61
+msgid "Designates whether the user can log into this admin site."
+msgstr "Определяет, может ли пользователь войти на этот административный сайт."
+
+#: app/core/accounts/models.py:68
+#, fuzzy
+#| msgid "Users"
+msgid "User"
+msgstr "Пользователь"
