@@ -11,6 +11,14 @@ class ReferralLevelChoices(models.IntegerChoices):
     fourth = 4, _("Level 4")
     fifth = 5, _("Level 5")
 
+    @classmethod
+    def count_levels(cls):
+        return len(cls.choices)
+
+    @classmethod
+    def max_level(cls):
+        return max(cls.values)
+
 
 class Referral(models.Model):
     invited_user = models.ForeignKey(

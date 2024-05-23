@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 16:24+0300\n"
+"POT-Creation-Date: 2024-05-23 19:05+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/core/accounts/admin.py:46
+#: app/core/accounts/admin.py:45
 msgid "Profile"
 msgstr "Профиль"
 
-#: app/core/accounts/admin.py:67
+#: app/core/accounts/admin.py:66
 msgid "Search by ID, Telegram ID and username"
 msgstr "Поиск по ID, Telegram ID и имени пользователя"
 
@@ -94,50 +94,102 @@ msgstr "Определяет, может ли пользователь войт�
 msgid "User"
 msgstr "Пользователь"
 
-#: app/core/referrals/admin.py:35
+#: app/core/products/admin.py:44
+msgid "Description"
+msgstr "Описание"
+
+#: app/core/products/apps.py:8 app/core/products/models.py:23
+msgid "Products"
+msgstr "Продукты"
+
+#: app/core/products/models.py:14
+msgid "Title RU"
+msgstr "Название (рус)"
+
+#: app/core/products/models.py:15
+msgid "Title EN"
+msgstr "Название (англ)"
+
+#: app/core/products/models.py:16
+msgid "Description RU"
+msgstr "Описание (рус)"
+
+#: app/core/products/models.py:17
+msgid "Description EN"
+msgstr "Описание (англ)"
+
+#: app/core/products/models.py:18
+msgid "Price"
+msgstr "Стоимость"
+
+#: app/core/products/models.py:19
+msgid "Deleted at"
+msgstr "Удален"
+
+#: app/core/products/models.py:22 app/core/products/models.py:32
+msgid "Product"
+msgstr "Продукт"
+
+#: app/core/products/models.py:38
+msgid "Referral level"
+msgstr "Уровень реферала"
+
+#: app/core/products/models.py:44
+msgid "Ratio"
+msgstr "Множитель"
+
+#: app/core/products/models.py:52
+msgid "Product ratio"
+msgstr "Множитель от стоимости продукта"
+
+#: app/core/products/models.py:53
+msgid "Product ratios"
+msgstr "Множители от стоимости продуктов"
+
+#: app/core/referrals/admin.py:34
 msgid "Invited username"
 msgstr "Пригласивший пользователь"
 
-#: app/core/referrals/admin.py:39
+#: app/core/referrals/admin.py:38
 msgid "Referral username"
 msgstr "Приглашенный пользователь"
 
-#: app/core/referrals/apps.py:8 app/core/referrals/models.py:39
+#: app/core/referrals/apps.py:8 app/core/referrals/models.py:46
 msgid "Referrals"
 msgstr "Рефералы"
 
-#: app/core/referrals/models.py:9
+#: app/core/referrals/models.py:8
 msgid "Level 1"
 msgstr "Уровень 1"
 
-#: app/core/referrals/models.py:10
+#: app/core/referrals/models.py:9
 msgid "Level 2"
 msgstr "Уровень 2"
 
-#: app/core/referrals/models.py:11
+#: app/core/referrals/models.py:10
 msgid "Level 3"
 msgstr "Уровень 3"
 
-#: app/core/referrals/models.py:12
+#: app/core/referrals/models.py:11
 msgid "Level 4"
 msgstr "Уровень 4"
 
-#: app/core/referrals/models.py:13
+#: app/core/referrals/models.py:12
 msgid "Level 5"
 msgstr "Уровень 5"
 
-#: app/core/referrals/models.py:19
+#: app/core/referrals/models.py:26
 msgid "Invited User"
 msgstr "Пригласивший пользователь"
 
-#: app/core/referrals/models.py:26
+#: app/core/referrals/models.py:33
 msgid "Referral User"
 msgstr "Приглашенный пользователь"
 
-#: app/core/referrals/models.py:32
+#: app/core/referrals/models.py:39
 msgid "Referral Level"
 msgstr "Уровень реферала"
 
-#: app/core/referrals/models.py:38
+#: app/core/referrals/models.py:45
 msgid "Referral"
 msgstr "Реферал"
