@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 14:49+0300\n"
+"POT-Creation-Date: 2024-05-23 16:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/core/accounts/admin.py:45
+#: app/core/accounts/admin.py:46
 msgid "Profile"
 msgstr "Профиль"
 
-#: app/core/accounts/admin.py:64
+#: app/core/accounts/admin.py:67
 msgid "Search by ID, Telegram ID and username"
 msgstr "Поиск по ID, Telegram ID и имени пользователя"
 
@@ -93,3 +93,51 @@ msgstr "Определяет, может ли пользователь войт�
 #| msgid "Users"
 msgid "User"
 msgstr "Пользователь"
+
+#: app/core/referrals/admin.py:35
+msgid "Invited username"
+msgstr "Пригласивший пользователь"
+
+#: app/core/referrals/admin.py:39
+msgid "Referral username"
+msgstr "Приглашенный пользователь"
+
+#: app/core/referrals/apps.py:8 app/core/referrals/models.py:39
+msgid "Referrals"
+msgstr "Рефералы"
+
+#: app/core/referrals/models.py:9
+msgid "Level 1"
+msgstr "Уровень 1"
+
+#: app/core/referrals/models.py:10
+msgid "Level 2"
+msgstr "Уровень 2"
+
+#: app/core/referrals/models.py:11
+msgid "Level 3"
+msgstr "Уровень 3"
+
+#: app/core/referrals/models.py:12
+msgid "Level 4"
+msgstr "Уровень 4"
+
+#: app/core/referrals/models.py:13
+msgid "Level 5"
+msgstr "Уровень 5"
+
+#: app/core/referrals/models.py:19
+msgid "Invited User"
+msgstr "Пригласивший пользователь"
+
+#: app/core/referrals/models.py:26
+msgid "Referral User"
+msgstr "Приглашенный пользователь"
+
+#: app/core/referrals/models.py:32
+msgid "Referral Level"
+msgstr "Уровень реферала"
+
+#: app/core/referrals/models.py:38
+msgid "Referral"
+msgstr "Реферал"

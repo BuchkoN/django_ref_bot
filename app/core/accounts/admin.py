@@ -1,9 +1,9 @@
+from app.core.accounts.models import User
+from app.core.referrals.admin import ReferralInlineAdmin
+from app.project.settings import USER_MODEL_BASE_REGISTER_FIELD
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
-
-from app.core.accounts.models import User
-from app.project.settings import USER_MODEL_BASE_REGISTER_FIELD
 
 
 @admin.register(User)
@@ -60,6 +60,11 @@ class UserAdmin(UserAdmin):
         "telegram_id",
         "username",
     )
+    prefetch_fields = ("referrals",)
+    inlines = (ReferralInlineAdmin,)
     search_fields = ("=id", "=telegram_id", "username")
     search_help_text = _("Search by ID, Telegram ID and username")
     ordering = ("-date_joined",)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related(*self.prefetch_fields)
