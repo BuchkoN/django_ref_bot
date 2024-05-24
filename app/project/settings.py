@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'app.core.accounts',
     'app.core.referrals',
     'app.core.products',
+    'app.core.bot',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.User"
 USER_MODEL_BASE_REGISTER_FIELD = 'username'
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+
+# Telegram bot settings
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+TELEGRAM_BOT_WEBHOOK_URL = os.environ.get('URI_API_PREFIX', '') + 'webhook/telegram'
+TELEGRAM_ALLOWED_NETWORKS = ['149.154.160.0/20', '91.108.4.0/22']

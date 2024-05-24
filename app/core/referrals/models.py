@@ -12,11 +12,11 @@ class ReferralLevelChoices(models.IntegerChoices):
     fifth = 5, _("Level 5")
 
     @classmethod
-    def count_levels(cls):
+    def count_levels(cls) -> int:
         return len(cls.choices)
 
     @classmethod
-    def max_level(cls):
+    def max_level(cls) -> int:
         return max(cls.values)
 
 
