@@ -5,14 +5,13 @@ from aiogram import (
     Dispatcher,
 )
 from aiogram.exceptions import TelegramBadRequest
-from app.core.bot.handlers.user import router as user_router
 from django.conf import settings
 
 
 async def init_bot(token: str, webhook_url: str) -> tuple[Bot, Dispatcher]:
     bot: Bot = Bot(token=token)
     dp: Dispatcher = Dispatcher(bot=bot)
-    dp.include_router(user_router)
+    await bot.set_webhook(webhook_url)
     return bot, dp
 
 
