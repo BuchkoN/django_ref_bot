@@ -10,10 +10,10 @@ from django.utils.translation import gettext_lazy as _
 class UserAdmin(UserAdmin):
     readonly_fields = (
         "date_joined",
+        "telegram_username",
         "referral_link",
         "telegram_id",
         "wallet_address",
-        "password",
     )
     add_fieldsets = (
         (
@@ -38,6 +38,7 @@ class UserAdmin(UserAdmin):
                     "language",
                     "last_login",
                     "date_joined",
+                    "is_staff",
                 )
             },
         ),
@@ -47,6 +48,7 @@ class UserAdmin(UserAdmin):
                 "classes": ("collapse",),
                 "fields": (
                     "status",
+                    'telegram_username',
                     "telegram_id",
                     "referral_link",
                     "wallet_address",
@@ -57,8 +59,8 @@ class UserAdmin(UserAdmin):
     list_filter = ()
     list_display = (
         "id",
+        "telegram_username",
         "telegram_id",
-        "username",
     )
     prefetch_fields = ("referrals",)
     inlines = (ReferralInlineAdmin,)

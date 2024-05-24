@@ -2,8 +2,10 @@ from django.apps import apps
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import PermissionsMixin
-from django.contrib.auth.models import UserManager as AbstractUserManager
+from django.contrib.auth.models import (
+    PermissionsMixin,
+    UserManager as AbstractUserManager,
+)
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -42,6 +44,7 @@ class UserManager(AbstractUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(_("Username"), max_length=250, blank=True, unique=True)
     date_joined = models.DateTimeField(_("Date joined"), auto_now_add=True)
+    telegram_username = models.CharField(_("Telegram username"), max_length=250, null=True)
     telegram_id = models.BigIntegerField("Telegram ID", blank=True, null=True)
     referral_link = models.URLField(_("Referral link"), blank=True, null=True)
     wallet_address = models.CharField(_("Wallet address"), max_length=250, null=True)
