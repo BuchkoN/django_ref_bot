@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 19:05+0300\n"
+"POT-Creation-Date: 2024-05-28 16:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,129 +20,137 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/core/accounts/admin.py:45
+#: app/core/accounts/admin.py:46
 msgid "Profile"
 msgstr "Профиль"
 
-#: app/core/accounts/admin.py:66
+#: app/core/accounts/admin.py:68
 msgid "Search by ID, Telegram ID and username"
 msgstr "Поиск по ID, Telegram ID и имени пользователя"
 
-#: app/core/accounts/apps.py:7 app/core/accounts/models.py:69
+#: app/core/accounts/apps.py:7 app/core/accounts/models.py:72
 msgid "Users"
 msgstr "Пользователи"
 
-#: app/core/accounts/models.py:14
+#: app/core/accounts/models.py:16
 msgid "Did not pass the funnel"
 msgstr "Не прошел воронку"
 
-#: app/core/accounts/models.py:15
+#: app/core/accounts/models.py:17
 msgid "Passed the funnel"
 msgstr "Прошел воронку"
 
-#: app/core/accounts/models.py:16
+#: app/core/accounts/models.py:18
 msgid "Purchased a free product"
 msgstr "Приобрел бесплатный продукт"
 
-#: app/core/accounts/models.py:17
+#: app/core/accounts/models.py:19
 msgid "Purchased a paid product"
 msgstr "Приобрел платный продукт"
 
-#: app/core/accounts/models.py:23
+#: app/core/accounts/models.py:25
 msgid "Russian"
 msgstr "Русский"
 
-#: app/core/accounts/models.py:24
+#: app/core/accounts/models.py:26
 msgid "English"
 msgstr "Английский"
 
-#: app/core/accounts/models.py:43
+#: app/core/accounts/models.py:45
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: app/core/accounts/models.py:44
+#: app/core/accounts/models.py:46
 msgid "Date joined"
 msgstr "Дата регистрации"
 
-#: app/core/accounts/models.py:46
+#: app/core/accounts/models.py:47
+msgid "Telegram username"
+msgstr "Имя пользователя в Telegram"
+
+#: app/core/accounts/models.py:49
 msgid "Referral link"
 msgstr "Реферальная ссылка"
 
-#: app/core/accounts/models.py:47
+#: app/core/accounts/models.py:50
 msgid "Wallet address"
 msgstr "Адрес кошелька"
 
-#: app/core/accounts/models.py:49
+#: app/core/accounts/models.py:52
 msgid "Interface language"
 msgstr "Язык интерфейса"
 
-#: app/core/accounts/models.py:54
+#: app/core/accounts/models.py:57
 msgid "Status"
 msgstr "Статус"
 
-#: app/core/accounts/models.py:59
+#: app/core/accounts/models.py:62
 msgid "Staff status"
 msgstr "Статус персонала"
 
-#: app/core/accounts/models.py:61
+#: app/core/accounts/models.py:64
 msgid "Designates whether the user can log into this admin site."
 msgstr "Определяет, может ли пользователь войти на этот административный сайт."
 
-#: app/core/accounts/models.py:68
+#: app/core/accounts/models.py:71
 #, fuzzy
 #| msgid "Users"
 msgid "User"
 msgstr "Пользователь"
 
-#: app/core/products/admin.py:44
+#: app/core/bot/handlers/user.py:28
+msgid "Please select a language"
+msgstr "Пожалуйста, выберите язык"
+
+#: app/core/products/admin.py:35
 msgid "Description"
 msgstr "Описание"
 
-#: app/core/products/apps.py:8 app/core/products/models.py:23
+#: app/core/products/apps.py:8 app/core/products/models.py:22
 msgid "Products"
 msgstr "Продукты"
 
-#: app/core/products/models.py:14
+#: app/core/products/models.py:13
 msgid "Title RU"
 msgstr "Название (рус)"
 
-#: app/core/products/models.py:15
+#: app/core/products/models.py:14
 msgid "Title EN"
 msgstr "Название (англ)"
 
-#: app/core/products/models.py:16
+#: app/core/products/models.py:15
 msgid "Description RU"
 msgstr "Описание (рус)"
 
-#: app/core/products/models.py:17
+#: app/core/products/models.py:16
 msgid "Description EN"
 msgstr "Описание (англ)"
 
-#: app/core/products/models.py:18
+#: app/core/products/models.py:17
 msgid "Price"
 msgstr "Стоимость"
 
-#: app/core/products/models.py:19
+#: app/core/products/models.py:18
 msgid "Deleted at"
 msgstr "Удален"
 
-#: app/core/products/models.py:22 app/core/products/models.py:32
+#: app/core/products/models.py:21 app/core/products/models.py:31
 msgid "Product"
 msgstr "Продукт"
 
-#: app/core/products/models.py:38
+#: app/core/products/models.py:37
 msgid "Referral level"
 msgstr "Уровень реферала"
 
-#: app/core/products/models.py:44
+#: app/core/products/models.py:43
 msgid "Ratio"
 msgstr "Множитель"
 
-#: app/core/products/models.py:52
+#: app/core/products/models.py:51
 msgid "Product ratio"
 msgstr "Множитель от стоимости продукта"
 
-#: app/core/products/models.py:53
+#: app/core/products/models.py:52
 msgid "Product ratios"
 msgstr "Множители от стоимости продуктов"
 
