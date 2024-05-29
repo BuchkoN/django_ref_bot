@@ -1,4 +1,5 @@
 import asyncio
+import logging
 
 from aiogram import (
     Bot,
@@ -6,6 +7,9 @@ from aiogram import (
 )
 from aiogram.exceptions import TelegramBadRequest
 from django.conf import settings
+
+
+logger = logging.getLogger(__name__)
 
 
 async def init_bot(token: str, webhook_url: str) -> tuple[Bot, Dispatcher]:
@@ -22,5 +26,6 @@ try:
         settings.TELEGRAM_BOT_TOKEN,
         settings.TELEGRAM_BOT_WEBHOOK_URL
     ))
-except TelegramBadRequest:
-    pass
+    logger.warning('Telegram Bot initialized')
+except TelegramBadRequest as e:
+    logger.error(f'Telegram Bot webhook is not sets: {e}')
