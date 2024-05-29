@@ -1,6 +1,6 @@
 from app.core.accounts.models import User
 from app.core.referrals.admin import ReferralInlineAdmin
-from app.project.settings import USER_MODEL_BASE_REGISTER_FIELD
+from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
@@ -21,7 +21,7 @@ class UserAdmin(UserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    USER_MODEL_BASE_REGISTER_FIELD,
+                    settings.USER_MODEL_BASE_REGISTER_FIELD,
                     "password1",
                     "password2",
                     "is_staff",
