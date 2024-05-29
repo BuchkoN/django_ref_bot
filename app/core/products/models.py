@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 class ProductManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(deleted_at__isnull=False)
+        return super().get_queryset().filter(deleted_at__isnull=True)
 
 
 class Product(models.Model):
