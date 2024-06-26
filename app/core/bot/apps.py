@@ -7,4 +7,5 @@ class BotConfig(AppConfig):
     verbose_name = 'Telegram Bot'
 
     def ready(self):
-        from app.core.bot.services import main  # noqa
+        from app.core.bot.services.main import init_bot
+        init_bot()
