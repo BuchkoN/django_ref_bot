@@ -8,6 +8,7 @@ from django.contrib.auth.models import (
 )
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from shortuuid.django_fields import ShortUUIDField
 
 
 class UserStatusChoices(models.IntegerChoices):
@@ -42,11 +43,11 @@ class UserManager(AbstractUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    oid = ShortUUIDField("OID", editable=False)
     username = models.CharField(_("Username"), max_length=250, blank=True, unique=True)
     date_joined = models.DateTimeField(_("Date joined"), auto_now_add=True)
     telegram_username = models.CharField(_("Telegram username"), max_length=250, null=True)
     telegram_id = models.BigIntegerField("Telegram ID", blank=True, null=True)
-    referral_link = models.URLField(_("Referral link"), blank=True, null=True)
     wallet_address = models.CharField(_("Wallet address"), max_length=250, null=True)
     language = models.CharField(
         _("Interface language"),

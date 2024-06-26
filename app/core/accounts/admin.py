@@ -1,6 +1,5 @@
 from app.core.accounts.models import User
 from app.core.referrals.admin import ReferralInlineAdmin
-from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
@@ -11,9 +10,9 @@ class UserAdmin(UserAdmin):
     readonly_fields = (
         "date_joined",
         "telegram_username",
-        "referral_link",
         "telegram_id",
         "wallet_address",
+        "oid",
     )
     add_fieldsets = (
         (
@@ -21,7 +20,7 @@ class UserAdmin(UserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    settings.USER_MODEL_BASE_REGISTER_FIELD,
+                    User.USERNAME_FIELD,
                     "password1",
                     "password2",
                     "is_staff",
@@ -39,6 +38,7 @@ class UserAdmin(UserAdmin):
                     "last_login",
                     "date_joined",
                     "is_staff",
+                    "oid",
                 )
             },
         ),
@@ -50,7 +50,6 @@ class UserAdmin(UserAdmin):
                     "status",
                     'telegram_username',
                     "telegram_id",
-                    "referral_link",
                     "wallet_address",
                 ),
             },
@@ -59,6 +58,7 @@ class UserAdmin(UserAdmin):
     list_filter = ()
     list_display = (
         "id",
+        User.USERNAME_FIELD,
         "telegram_username",
         "telegram_id",
     )
