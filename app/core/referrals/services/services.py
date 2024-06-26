@@ -1,32 +1,33 @@
-from app.core.accounts.repositories.repositories import get_user_by_telegram_id
+from app.core.accounts.repositories.repositories import UsersRepository
 from app.core.referrals.models import (
     Referral,
     ReferralLevelChoices,
 )
-from app.core.referrals.repositories.repositories import get_referrals_chain_by_invited_user
+from app.core.referrals.repositories.repositories import ReferralsRepository
+from app.project.base.services import BaseService
 from django.contrib.auth import get_user_model
 
 
 User = get_user_model()
 
 
-async def create_referrals_instances(invited_user_id: int, referral: User) -> None:
-    invited_user: User = await get_user_by_telegram_id(telegram_id=invited_user_id)
-    if invited_user is None:
-        return
+class ReferralService(BaseService):
+    @staticmethod
+    async def add_referrals_by_ref_code(new_user: User, ref_code: str) -> None:
+        invited_user = await UsersRepository().get_user_by_oid(oid=ref_code)
+        if invited_user is None:
+            return
 
-    referrals_create = [Referral(
-        invited_user_id=invited_user.id,
-        referral_user_id=referral.id,
-        referral_level=ReferralLevelChoices.first
-    )]
-
-    referrals_chain = await get_referrals_chain_by_invited_user(invited_user)
-    async for ref_instance in referrals_chain:
-        referrals_create.append(Referral(
-            invited_user_id=ref_instance.invited_user_id,
-            referral_user_id=referral.id,
-            referral_level=ref_instance.referral_level + 1,
-        ))
-
-    await Referral.objects.abulk_create(referrals_create)
+        referrals_repo = ReferralsRepository()
+        new_referrals = [Referral(
+            invited_user_id=invited_user.id,
+            referral_user_id=new_user.id,
+            referral_level=ReferralLevelChoices.first
+        )]
+        async for ref in await referrals_repo.get_referrals_by_invited_user_id(invited_user.id):
+            new_referrals.append(Referral(
+                invited_user_id=ref.invited_user_id,
+                referral_user_id=new_user.id,
+                referral_level=ref.referral_level + 1,
+            ))
+        await referrals_repo.create_referrals_instances(new_referrals)
