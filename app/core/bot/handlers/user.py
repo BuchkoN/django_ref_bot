@@ -11,13 +11,13 @@ from aiogram.types import (
     CallbackQuery,
     Message,
 )
-from django.utils import translation
-
 from app.core.accounts.repositories.repositories import UsersRepository
 from app.core.bot.keyboards.user import InlineLanguageSelectKeyboard
+from app.core.bot.messages.messages import BotMessagesText
 from app.core.bot.utils import extract_ref_code
 from app.core.referrals.services.services import ReferralService
 from django.contrib.auth import get_user_model
+from django.utils import translation
 from django.utils.translation import gettext as _
 
 
@@ -34,16 +34,13 @@ async def user_start(message: Message, command: CommandObject):
     if ref_code is not None and is_created:
         await ReferralService().add_referrals_by_ref_code(user, ref_code)
     await message.answer(
-        text=_('Please select a language'),
+        text=_(BotMessagesText.SELECT_LANG),
         reply_markup=InlineLanguageSelectKeyboard(with_back=False).get_keyboard()
     )
 
 
 @router.callback_query(F.data.startswith('select_lang'))
 async def user_select_language(call: CallbackQuery):
-    user_repo = UsersRepository()
-    user: User = await user_repo.get_user_by_telegram_id(telegram_id=call.from_user.id)
-    await User.objects.filter(id=user.id).aupdate(language=call.data.split('_')[-1])
     language = call.data.split('_')[-1]
     await UsersRepository().change_language_for_telegram_user(
         user_tg_id=call.from_user.id,
