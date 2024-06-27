@@ -28,7 +28,7 @@ app-makemigrations:
 app-migrate:
 	$(DC) -f $(APP_FILE) -f $(STORAGE_FILE) exec $(APP_CONTAINER) ./manage.py migrate
 
-.PHONY: app-loacale
+.PHONY: app-locale
 app-locale:
 	$(DC) -f $(APP_FILE) -f $(STORAGE_FILE) exec $(APP_CONTAINER) ./manage.py makemessages -a
 
