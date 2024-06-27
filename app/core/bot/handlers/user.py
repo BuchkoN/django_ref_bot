@@ -12,8 +12,14 @@ from aiogram.types import (
     Message,
 )
 from app.core.accounts.repositories.repositories import UsersRepository
-from app.core.bot.keyboards.user import InlineLanguageSelectKeyboard
-from app.core.bot.messages.messages import BotMessagesText
+from app.core.bot.keyboards.user import (
+    InlineFunnelNavigationKeyboard,
+    InlineLanguageSelectKeyboard,
+)
+from app.core.bot.messages.messages import (
+    BotMessagesText,
+    UserFunnelText,
+)
 from app.core.bot.utils import extract_ref_code
 from app.core.referrals.services.services import ReferralService
 from django.contrib.auth import get_user_model
@@ -47,4 +53,20 @@ async def user_select_language(call: CallbackQuery):
         language=language
     )
     translation.activate(language)
+    await call.message.answer(
+        text=_(UserFunnelText.first.label),
+        reply_markup=InlineFunnelNavigationKeyboard(funnel_stage='first').get_keyboard()
+    )
     await call.message.delete()
+
+
+@router.callback_query(F.data.startswith('funnel'))
+async def user_funnel(call: CallbackQuery):
+    funnel_stage = call.data.split('_')[-1]
+    if funnel_stage != UserFunnelText.fifth.name:
+        await call.message.edit_text(
+            text=_(getattr(UserFunnelText, funnel_stage).label),
+            reply_markup=InlineFunnelNavigationKeyboard(funnel_stage=funnel_stage).get_keyboard()
+        )
+    else:
+        await call.message.edit_text(_("Funnel is completely"))

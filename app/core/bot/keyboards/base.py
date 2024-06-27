@@ -2,10 +2,7 @@ from abc import (
     ABC,
     abstractmethod,
 )
-from dataclasses import (
-    dataclass,
-    field,
-)
+from dataclasses import dataclass
 from typing import List
 
 from aiogram.types import (
@@ -16,8 +13,6 @@ from aiogram.types import (
 
 @dataclass
 class BaseInlineKeyboard(ABC):
-    with_back: bool = field(default=True, kw_only=True)
-
     @abstractmethod
     def buttons_builder(self) -> List[List[InlineKeyboardButton]]:
         ...
