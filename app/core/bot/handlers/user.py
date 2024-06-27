@@ -11,6 +11,8 @@ from aiogram.types import (
     CallbackQuery,
     Message,
 )
+from django.utils import translation
+
 from app.core.accounts.repositories.repositories import UsersRepository
 from app.core.bot.keyboards.user import InlineLanguageSelectKeyboard
 from app.core.bot.utils import extract_ref_code
@@ -42,4 +44,10 @@ async def user_select_language(call: CallbackQuery):
     user_repo = UsersRepository()
     user: User = await user_repo.get_user_by_telegram_id(telegram_id=call.from_user.id)
     await User.objects.filter(id=user.id).aupdate(language=call.data.split('_')[-1])
+    language = call.data.split('_')[-1]
+    await UsersRepository().change_language_for_telegram_user(
+        user_tg_id=call.from_user.id,
+        language=language
+    )
+    translation.activate(language)
     await call.message.delete()

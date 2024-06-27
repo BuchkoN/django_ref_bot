@@ -34,3 +34,6 @@ class UsersRepository(BaseRepositoryDjango):
 
     async def get_user_by_oid(self, oid: str) -> User | None:
         return await self.manager.filter(oid=oid).afirst()
+
+    async def change_language_for_telegram_user(self, user_tg_id: int, language: str) -> None:
+        await self.manager.filter(telegram_id=user_tg_id).aupdate(language=language)
