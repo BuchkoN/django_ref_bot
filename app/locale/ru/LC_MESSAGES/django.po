@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 16:57+0300\n"
+"POT-Creation-Date: 2024-06-27 22:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,77 +28,144 @@ msgstr "Профиль"
 msgid "Search by ID, Telegram ID and username"
 msgstr "Поиск по ID, Telegram ID и имени пользователя"
 
-#: app/core/accounts/apps.py:7 app/core/accounts/models.py:72
+#: app/core/accounts/apps.py:7 app/core/accounts/models.py:73
 msgid "Users"
 msgstr "Пользователи"
 
-#: app/core/accounts/models.py:16
+#: app/core/accounts/models.py:17
 msgid "Did not pass the funnel"
 msgstr "Не прошел воронку"
 
-#: app/core/accounts/models.py:17
+#: app/core/accounts/models.py:18
 msgid "Passed the funnel"
 msgstr "Прошел воронку"
 
-#: app/core/accounts/models.py:18
+#: app/core/accounts/models.py:19
 msgid "Purchased a free product"
 msgstr "Приобрел бесплатный продукт"
 
-#: app/core/accounts/models.py:19
+#: app/core/accounts/models.py:20
 msgid "Purchased a paid product"
 msgstr "Приобрел платный продукт"
 
-#: app/core/accounts/models.py:25
+#: app/core/accounts/models.py:26
 msgid "Russian"
 msgstr "Русский"
 
-#: app/core/accounts/models.py:26
+#: app/core/accounts/models.py:27
 msgid "English"
 msgstr "Английский"
 
-#: app/core/accounts/models.py:45
+#: app/core/accounts/models.py:47
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: app/core/accounts/models.py:46
+#: app/core/accounts/models.py:48
 msgid "Date joined"
 msgstr "Дата регистрации"
 
-#: app/core/accounts/models.py:47
+#: app/core/accounts/models.py:49
 msgid "Telegram username"
 msgstr "Имя пользователя в Telegram"
 
-#: app/core/accounts/models.py:49
-msgid "Referral link"
-msgstr "Реферальная ссылка"
-
-#: app/core/accounts/models.py:50
+#: app/core/accounts/models.py:51
 msgid "Wallet address"
 msgstr "Адрес кошелька"
 
-#: app/core/accounts/models.py:52
+#: app/core/accounts/models.py:53
 msgid "Interface language"
 msgstr "Язык интерфейса"
 
-#: app/core/accounts/models.py:57
+#: app/core/accounts/models.py:58
 msgid "Status"
 msgstr "Статус"
 
-#: app/core/accounts/models.py:62
+#: app/core/accounts/models.py:63
 msgid "Staff status"
 msgstr "Статус персонала"
 
-#: app/core/accounts/models.py:64
+#: app/core/accounts/models.py:65
 msgid "Designates whether the user can log into this admin site."
 msgstr "Определяет, может ли пользователь войти на этот административный сайт."
 
-#: app/core/accounts/models.py:71
+#: app/core/accounts/models.py:72
 #, fuzzy
 #| msgid "Users"
 msgid "User"
 msgstr "Пользователь"
 
-#: app/core/bot/handlers/user.py:28
+#: app/core/bot/handlers/user.py:62
+msgid "Funnel is completely"
+msgstr "Воронка пройдена"
+
+#: app/core/bot/keyboards/user.py:29
+msgid "Next"
+msgstr "Далее"
+
+#: app/core/bot/keyboards/user.py:35
+msgid "Back"
+msgstr "Назад"
+
+#: app/core/bot/messages/messages.py:7
+msgid ""
+"\"How to Gain Clients’ Trust? 💰\"\n"
+"Build a personal brand by creating an illusion of success. Post photos from "
+"luxurious places, share stories of your \"achievements\" and always speak "
+"about yourself in superlatives."
+msgstr ""
+"\"Как завоевать доверие клиентов? 💰\"\n"
+"Постройте личный бренд, создавая иллюзию успеха. Публикуйте фото из дорогих "
+"мест, делитесь историями о своих «успехах» и всегда говорите о себе в "
+"превосходной степени."
+
+#: app/core/bot/messages/messages.py:13
+msgid ""
+"\"The Art of Persuasive Copywriting 📝\"\n"
+"Use catchy headlines and emotional appeals. Start with a problem, offer a "
+"solution, and show how your product has changed clients’ lives. Always add "
+"testimonials (even if they’re fictional)."
+msgstr ""
+"\"Искусство продающего текста 📝\"\n"
+"Используйте яркие заголовки и эмоциональные обращения. Начните с проблемы, "
+"предложите решение и покажите, как ваш продукт изменил жизнь клиентов. "
+"Всегда добавляйте отзывы (пусть даже вымышленные)."
+
+#: app/core/bot/messages/messages.py:19
+msgid ""
+"\"Effective Social Media Strategies 📱\"\n"
+"Post content regularly, engage with followers, run contests and giveaways. "
+"The more activity, the higher the trust in you and your product."
+msgstr ""
+"\"Эффективные стратегии в социальных сетях 📱\"\n"
+"Публикуйте контент регулярно, взаимодействуйте с подписчиками, проводите "
+"конкурсы и розыгрыши. Чем больше активности, тем выше доверие к вам и вашему "
+"продукту."
+
+#: app/core/bot/messages/messages.py:24
+msgid ""
+"\"How to Create an Irresistible Offer? 🎁\"\n"
+"Come up with a unique selling proposition (USP). Create limited-time offers "
+"and discounts, add bonuses for purchases, creating a sense of urgency and "
+"value for the client."
+msgstr ""
+"\"Как создать неотразимое предложение? 🎁\"\n"
+"Придумайте уникальное торговое предложение (УТП). Создайте ограниченные по "
+"времени акции и скидки, добавляйте бонусы за покупку, создавая у клиента "
+"ощущение выгоды и срочности."
+
+#: app/core/bot/messages/messages.py:29
+msgid ""
+"\"Automating the Sales Process 🚀\"\n"
+"Set up sales funnels and email marketing. Use chatbots to interact with "
+"clients and sell your products. This will help you save time and increase "
+"profits without extra effort."
+msgstr ""
+"\"Автоматизация процесса продаж 🚀\"\n"
+"Настройте автоворонки и email-маркетинг. Используйте чат-ботов для общения с "
+"клиентами и продажи ваших продуктов. Это поможет вам экономить время и "
+"увеличивать прибыль без дополнительных усилий."
+
+#: app/core/bot/messages/messages.py:51
 msgid "Please select a language"
 msgstr "Пожалуйста, выберите язык"
 
