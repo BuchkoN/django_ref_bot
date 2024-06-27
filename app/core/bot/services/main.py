@@ -8,6 +8,7 @@ from aiogram import (
 )
 from aiogram.exceptions import TelegramBadRequest
 from app.core.bot.handlers.user import router as user_router
+from app.core.bot.middlewares import TelegramLocaleMiddleware
 from django.conf import settings
 
 
@@ -18,6 +19,7 @@ bot_event_loop = asyncio.new_event_loop()
 async def run_bot() -> tuple[Bot, Dispatcher]:
     bot: Bot = Bot(token=settings.TELEGRAM_BOT_TOKEN)
     dp: Dispatcher = Dispatcher(bot=bot)
+    dp.update.outer_middleware(TelegramLocaleMiddleware())
     dp.include_router(user_router)
     try:
         await bot.set_webhook(settings.TELEGRAM_BOT_WEBHOOK_URL)

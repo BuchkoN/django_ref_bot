@@ -1,4 +1,7 @@
-from aiogram import F
+from aiogram import (
+    F,
+    Router,
+)
 from aiogram.filters import (
     Command,
     CommandObject,
@@ -9,7 +12,6 @@ from aiogram.types import (
     Message,
 )
 from app.core.accounts.repositories.repositories import UsersRepository
-from app.core.bot.handlers.base import LocalizedRouter
 from app.core.bot.keyboards.user import InlineLanguageSelectKeyboard
 from app.core.bot.utils import extract_ref_code
 from app.core.referrals.services.services import ReferralService
@@ -17,7 +19,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext as _
 
 
-router = LocalizedRouter()
+router = Router()
 User = get_user_model()
 
 
