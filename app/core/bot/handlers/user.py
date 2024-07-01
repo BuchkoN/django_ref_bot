@@ -52,12 +52,13 @@ async def user_select_language(call: CallbackQuery):
         user_tg_id=call.from_user.id,
         language=language
     )
-    translation.activate(language)
-    await call.message.answer(
-        text=_(UserFunnelText.first.label),
-        reply_markup=InlineFunnelNavigationKeyboard(funnel_stage='first').get_keyboard()
-    )
-    await call.message.delete()
+    with translation.override(language=language):
+        await call.message.edit_text(
+            text=_(UserFunnelText.first.label),
+            reply_markup=InlineFunnelNavigationKeyboard(
+                funnel_stage=UserFunnelText.first.name
+            ).get_keyboard()
+        )
 
 
 @router.callback_query(F.data.startswith('funnel'))
