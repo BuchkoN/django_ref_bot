@@ -22,5 +22,5 @@ class TelegramLocaleMiddleware(BaseMiddleware):
         user_telegram_id = getattr(event, event.event_type).from_user.id
         user = await UsersRepository().get_user_by_telegram_id(telegram_id=user_telegram_id)
         language = user.language if user is not None else UserLanguageChoices.english
-        translation.activate(language)
-        return await handler(event, data)
+        with translation.override(language):
+            return await handler(event, data)
