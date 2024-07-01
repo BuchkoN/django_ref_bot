@@ -1,7 +1,4 @@
-from dataclasses import (
-    dataclass,
-    field,
-)
+from dataclasses import dataclass
 
 from aiogram.types import InlineKeyboardButton
 from app.core.accounts.models import UserLanguageChoices
@@ -12,11 +9,9 @@ from django.utils.translation import gettext as _
 
 @dataclass
 class InlineLanguageSelectKeyboard(BaseInlineKeyboard):
-    with_back: bool = field(default=True, kw_only=True)
-
     def buttons_builder(self):
         return [
-            [InlineKeyboardButton(text=_(lang), callback_data=f'select_lang_{value}')]
+            [InlineKeyboardButton(text=_(lang), callback_data=f'start_select_lang_{value}')]
             for value, lang in UserLanguageChoices.choices
         ]
 

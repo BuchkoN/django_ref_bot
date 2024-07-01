@@ -12,7 +12,8 @@ from aiogram.types import (
     Message,
 )
 from app.core.accounts.repositories.repositories import UsersRepository
-from app.core.bot.keyboards.user import (
+from app.core.bot.keyboards.menu import ReplyMainMenuKeyboard
+from app.core.bot.keyboards.start import (
     InlineFunnelNavigationKeyboard,
     InlineLanguageSelectKeyboard,
 )
@@ -36,16 +37,30 @@ User = get_user_model()
 async def user_start(message: Message, command: CommandObject):
     user_repo = UsersRepository()
     user, is_created = await user_repo.get_or_create_user_from_telegram_chat(message.chat)
-    ref_code = extract_ref_code(command.args)
-    if ref_code is not None and is_created:
+    if not is_created and not user.is_funnel_passed:
+        await message.answer(
+            text=_(BotMessagesText.WELLCOME_EXIST_USER_IN_FUNNEL),
+            reply_markup=ReplyMainMenuKeyboard().get_keyboard()
+        )
+        return
+
+    if user.is_funnel_passed:
+        await message.answer(
+            text=_(BotMessagesText.WELLCOME_EXIST_USER),
+            reply_markup=ReplyMainMenuKeyboard(full_menu=True).get_keyboard()
+        )
+        return
+
+    if (ref_code := extract_ref_code(command.args)) is not None and is_created:
         await ReferralService().add_referrals_by_ref_code(user, ref_code)
+    await message.answer(text=_(BotMessagesText.WELLCOME_NEW_USER))
     await message.answer(
         text=_(BotMessagesText.SELECT_LANG),
-        reply_markup=InlineLanguageSelectKeyboard(with_back=False).get_keyboard()
+        reply_markup=InlineLanguageSelectKeyboard().get_keyboard()
     )
 
 
-@router.callback_query(F.data.startswith('select_lang'))
+@router.callback_query(F.data.startswith('start_select_lang'))
 async def user_select_language(call: CallbackQuery):
     language = call.data.split('_')[-1]
     await UsersRepository().change_language_for_telegram_user(
@@ -67,7 +82,10 @@ async def user_funnel(call: CallbackQuery):
     user_repo = UsersRepository()
     if funnel_stage == UserFunnelText.fifth.name:
         await user_repo.telegram_user_completed_funnel(call.from_user.id)
-        await call.message.edit_text(_("Funnel is completely"))
+        await call.message.answer(
+            text=_(BotMessagesText.FUNNEL_COMPLETED),
+            reply_markup=ReplyMainMenuKeyboard(full_menu=True).get_keyboard()
+        )
         return
 
     await call.message.edit_text(

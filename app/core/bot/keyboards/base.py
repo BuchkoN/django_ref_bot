@@ -8,6 +8,8 @@ from typing import List
 from aiogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
+    KeyboardButton,
+    ReplyKeyboardMarkup,
 )
 
 
@@ -19,3 +21,13 @@ class BaseInlineKeyboard(ABC):
 
     def get_keyboard(self) -> InlineKeyboardMarkup:
         return InlineKeyboardMarkup(inline_keyboard=self.buttons_builder())
+
+
+@dataclass
+class BaseReplyKeyboard(ABC):
+    @abstractmethod
+    def buttons_builder(self) -> List[List[KeyboardButton]]:
+        ...
+
+    def get_keyboard(self) -> ReplyKeyboardMarkup:
+        return ReplyKeyboardMarkup(keyboard=self.buttons_builder(), resize_keyboard=True)

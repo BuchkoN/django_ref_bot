@@ -22,7 +22,8 @@ class UserFunnelText(IntegerChoices):
     )
     fourth = 4, _(
         '"How to Create an Irresistible Offer? 🎁"\n'
-        'Come up with a unique selling proposition (USP). Create limited-time offers and discounts, '
+        'Come up with a unique selling proposition (USP). '
+        'Create limited-time offers and discounts, '
         'add bonuses for purchases, creating a sense of urgency and value for the client.'
     )
     fifth = 5, _(
@@ -49,3 +50,24 @@ class UserFunnelText(IntegerChoices):
 
 class BotMessagesText:
     SELECT_LANG = _('Please select a language')
+    FUNNEL_COMPLETED = _(
+        'Thank you for watching our promo materials. '
+        'Now the main functionality of the bot is available to you, '
+        'which you can familiarize yourself with in the bot menu 👏'
+    )
+    WELLCOME_EXIST_USER = _('We are glad to see you back in our bot 🤝')
+    WELLCOME_EXIST_USER_IN_FUNNEL = _(
+        'We are glad to see you back in our bot 🤝\n'
+        'To get access to the full functionality of the bot, '
+        'you need to view the promo materials that we have prepared especially for you!'
+    )
+    WELLCOME_NEW_USER = _(
+        'Welcome to our bot 🤝\n'
+        'To get access to the full functionality of the bot, '
+        'you need to view the promo materials that we have prepared especially for you!'
+    )
+
+
+class MainMenuButtonsName:
+    SETTINGS = _('Settings ⚙️')
+    SHOW_PROMO = _('Show promo materials')
