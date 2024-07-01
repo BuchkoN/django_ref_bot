@@ -4,6 +4,7 @@ from dataclasses import (
 )
 
 from aiogram.types import Chat
+from app.core.accounts.models import UserStatusChoices
 from app.project.base.repositories import BaseRepositoryDjango
 from django.contrib.auth import get_user_model
 from django.db.models import Manager
@@ -37,3 +38,10 @@ class UsersRepository(BaseRepositoryDjango):
 
     async def change_language_for_telegram_user(self, user_tg_id: int, language: str) -> None:
         await self.manager.filter(telegram_id=user_tg_id).aupdate(language=language)
+
+    async def telegram_user_completed_funnel(self, user_tg_id: int) -> None:
+        await (
+            self.manager
+            .filter(telegram_id=user_tg_id)
+            .aupdate(status=UserStatusChoices.funnel_passed)
+        )

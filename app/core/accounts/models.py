@@ -73,3 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _("Users")
         ordering = ["-date_joined"]
         indexes = [models.Index(fields=["telegram_id"])]
+
+    @property
+    def is_funnel_passed(self) -> bool:
+        return self.status != UserStatusChoices.funnel_not_passed

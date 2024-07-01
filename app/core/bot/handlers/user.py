@@ -64,10 +64,13 @@ async def user_select_language(call: CallbackQuery):
 @router.callback_query(F.data.startswith('funnel'))
 async def user_funnel(call: CallbackQuery):
     funnel_stage = call.data.split('_')[-1]
-    if funnel_stage != UserFunnelText.fifth.name:
-        await call.message.edit_text(
-            text=_(getattr(UserFunnelText, funnel_stage).label),
-            reply_markup=InlineFunnelNavigationKeyboard(funnel_stage=funnel_stage).get_keyboard()
-        )
-    else:
+    user_repo = UsersRepository()
+    if funnel_stage == UserFunnelText.fifth.name:
+        await user_repo.telegram_user_completed_funnel(call.from_user.id)
         await call.message.edit_text(_("Funnel is completely"))
+        return
+
+    await call.message.edit_text(
+        text=_(getattr(UserFunnelText, funnel_stage).label),
+        reply_markup=InlineFunnelNavigationKeyboard(funnel_stage=funnel_stage).get_keyboard()
+    )
