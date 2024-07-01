@@ -82,6 +82,7 @@ async def user_funnel(call: CallbackQuery):
     user_repo = UsersRepository()
     if funnel_stage == UserFunnelText.fifth.name:
         await user_repo.telegram_user_completed_funnel(call.from_user.id)
+        await call.message.delete()
         await call.message.answer(
             text=_(BotMessagesText.FUNNEL_COMPLETED),
             reply_markup=ReplyMainMenuKeyboard(full_menu=True).get_keyboard()
