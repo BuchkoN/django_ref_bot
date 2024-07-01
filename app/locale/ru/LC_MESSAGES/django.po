@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-01 17:41+0300\n"
+"POT-Creation-Date: 2024-07-01 18:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,11 +94,11 @@ msgstr "Определяет, может ли пользователь войт�
 msgid "User"
 msgstr "Пользователь"
 
-#: app/core/bot/keyboards/start.py:28
+#: app/core/bot/keyboards/start.py:26
 msgid "Next"
 msgstr "Далее"
 
-#: app/core/bot/keyboards/start.py:33
+#: app/core/bot/keyboards/start.py:31
 msgid "Back"
 msgstr "Назад"
 
@@ -149,7 +149,7 @@ msgstr ""
 "времени акции и скидки, добавляйте бонусы за покупку, создавая у клиента "
 "ощущение выгоды и срочности."
 
-#: app/core/bot/messages/messages.py:29
+#: app/core/bot/messages/messages.py:30
 msgid ""
 "\"Automating the Sales Process 🚀\"\n"
 "Set up sales funnels and email marketing. Use chatbots to interact with "
@@ -161,48 +161,48 @@ msgstr ""
 "клиентами и продажи ваших продуктов. Это поможет вам экономить время и "
 "увеличивать прибыль без дополнительных усилий."
 
-#: app/core/bot/messages/messages.py:51
+#: app/core/bot/messages/messages.py:52
 msgid "Please select a language"
 msgstr "Пожалуйста, выберите язык"
 
-#: app/core/bot/messages/messages.py:53
+#: app/core/bot/messages/messages.py:54
 msgid ""
 "Thank you for watching our promo materials. Now the main functionality of "
 "the bot is available to you, which you can familiarize yourself with in the "
-"bot menu 👏"
+"menu 👏"
 msgstr ""
 "Спасибо что просмотрели наши промо-материалы. Теперь вам доступен основной "
-"функционал бота с которым вы можете ознакомиться в меню бота 👏"
+"функционал бота с которым вы можете ознакомиться в меню 👏"
 
-#: app/core/bot/messages/messages.py:57
-msgid "We are glad to see you back in our bot 🤝"
-msgstr "Мы рады видеть вас снова в нашем боте 🤝"
+#: app/core/bot/messages/messages.py:58
+msgid "We are glad to see you back 🤝"
+msgstr "Мы рады видеть вас снова 🤝"
 
-#: app/core/bot/messages/messages.py:59
+#: app/core/bot/messages/messages.py:60
 msgid ""
-"We are glad to see you back in our bot 🤝\n"
+"We are glad to see you back 🤝\n"
 "To get access to the full functionality of the bot, you need to view the "
 "promo materials that we have prepared especially for you!"
 msgstr ""
-"Мы рады видеть вас снова в нашем боте 🤝\n"
+"Мы рады видеть вас снова 🤝\n"
 "Чтобы получить доступ к полному функционалу бота, необходимо просмотреть "
 "промо материалы, которые мы специально для тебя подготовили!"
 
-#: app/core/bot/messages/messages.py:64
+#: app/core/bot/messages/messages.py:65
 msgid ""
-"Welcome to our bot 🤝\n"
+"Welcome 🤝\n"
 "To get access to the full functionality of the bot, you need to view the "
 "promo materials that we have prepared especially for you!"
 msgstr ""
-"Приветствую тебя в нашем боте 🤝\n"
+"Приветствую тебя 🤝\n"
 "Чтобы получить доступ к полному функционалу бота, необходимо просмотреть "
 "промо материалы, которые мы специально для тебя подготовили!"
 
-#: app/core/bot/messages/messages.py:71
+#: app/core/bot/messages/messages.py:72
 msgid "Settings ⚙️"
 msgstr "Настройки ⚙️"
 
-#: app/core/bot/messages/messages.py:72
+#: app/core/bot/messages/messages.py:73
 msgid "Show promo materials"
 msgstr "Показать промо-материалы"
 

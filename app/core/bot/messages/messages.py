@@ -53,16 +53,16 @@ class BotMessagesText:
     FUNNEL_COMPLETED = _(
         'Thank you for watching our promo materials. '
         'Now the main functionality of the bot is available to you, '
-        'which you can familiarize yourself with in the bot menu 👏'
+        'which you can familiarize yourself with in the menu 👏'
     )
-    WELLCOME_EXIST_USER = _('We are glad to see you back in our bot 🤝')
+    WELLCOME_EXIST_USER = _('We are glad to see you back 🤝')
     WELLCOME_EXIST_USER_IN_FUNNEL = _(
-        'We are glad to see you back in our bot 🤝\n'
+        'We are glad to see you back 🤝\n'
         'To get access to the full functionality of the bot, '
         'you need to view the promo materials that we have prepared especially for you!'
     )
     WELLCOME_NEW_USER = _(
-        'Welcome to our bot 🤝\n'
+        'Welcome 🤝\n'
         'To get access to the full functionality of the bot, '
         'you need to view the promo materials that we have prepared especially for you!'
     )
