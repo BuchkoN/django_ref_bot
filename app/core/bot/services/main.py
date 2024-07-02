@@ -11,7 +11,7 @@ from aiogram.fsm.storage.redis import RedisStorage
 from app.core.bot.handlers.menu import router as menu_router
 from app.core.bot.handlers.start import router as start_router
 from app.core.bot.middlewares import TelegramLocaleMiddleware
-from app.project.redis import AsyncRedisClient
+from app.project.redis import FSMRedisClient
 from django.conf import settings
 
 
@@ -20,12 +20,8 @@ bot_event_loop = asyncio.new_event_loop()
 
 
 async def run_bot() -> tuple[Bot, Dispatcher]:
-    redis_fsm_url = settings.TELEGRAM_REDIS_FSM_URL
     bot: Bot = Bot(token=settings.TELEGRAM_BOT_TOKEN)
-    dp: Dispatcher = Dispatcher(
-        bot=bot,
-        storage=RedisStorage(redis=AsyncRedisClient(redis_fsm_url))
-    )
+    dp: Dispatcher = Dispatcher(bot=bot, storage=RedisStorage(redis=FSMRedisClient()))
     dp.update.outer_middleware(TelegramLocaleMiddleware())
     dp.include_router(start_router)
     dp.include_router(menu_router)
