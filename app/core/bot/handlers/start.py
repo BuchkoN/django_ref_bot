@@ -12,7 +12,7 @@ from aiogram.types import (
     Message,
 )
 from app.core.accounts.repositories.repositories import UsersRepository
-from app.core.bot.keyboards.menu import ReplyMainMenuKeyboard
+from app.core.bot.keyboards.menu import MainMenuReplyKeyboard
 from app.core.bot.keyboards.start import (
     InlineFunnelNavigationKeyboard,
     InlineLanguageSelectKeyboard,
@@ -40,14 +40,14 @@ async def user_start(message: Message, command: CommandObject):
     if not is_created and not user.is_funnel_passed:
         await message.answer(
             text=_(BotMessagesText.WELLCOME_EXIST_USER_IN_FUNNEL),
-            reply_markup=ReplyMainMenuKeyboard().get_keyboard()
+            reply_markup=MainMenuReplyKeyboard().get_keyboard()
         )
         return
 
     if user.is_funnel_passed:
         await message.answer(
             text=_(BotMessagesText.WELLCOME_EXIST_USER),
-            reply_markup=ReplyMainMenuKeyboard(full_menu=True).get_keyboard()
+            reply_markup=MainMenuReplyKeyboard(full_menu=True).get_keyboard()
         )
         return
 
@@ -85,7 +85,7 @@ async def user_funnel(call: CallbackQuery):
         await call.message.delete()
         await call.message.answer(
             text=_(BotMessagesText.FUNNEL_COMPLETED),
-            reply_markup=ReplyMainMenuKeyboard(full_menu=True).get_keyboard()
+            reply_markup=MainMenuReplyKeyboard(full_menu=True).get_keyboard()
         )
         return
 

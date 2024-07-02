@@ -7,6 +7,7 @@ from aiogram import (
     Dispatcher,
 )
 from aiogram.exceptions import TelegramBadRequest
+from aiogram.fsm.storage.memory import MemoryStorage
 from app.core.bot.handlers.menu import router as menu_router
 from app.core.bot.handlers.start import router as start_router
 from app.core.bot.middlewares import TelegramLocaleMiddleware
@@ -19,7 +20,7 @@ bot_event_loop = asyncio.new_event_loop()
 
 async def run_bot() -> tuple[Bot, Dispatcher]:
     bot: Bot = Bot(token=settings.TELEGRAM_BOT_TOKEN)
-    dp: Dispatcher = Dispatcher(bot=bot)
+    dp: Dispatcher = Dispatcher(bot=bot, storage=MemoryStorage())
     dp.update.outer_middleware(TelegramLocaleMiddleware())
     dp.include_router(start_router)
     dp.include_router(menu_router)

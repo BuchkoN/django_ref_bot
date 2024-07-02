@@ -4,13 +4,44 @@ from dataclasses import (
 )
 
 from aiogram.types import KeyboardButton
-from app.core.bot.keyboards.base import BaseReplyKeyboard
-from app.core.bot.messages.messages import MainMenuButtonsName
+from app.core.accounts.models import UserLanguageChoices
+from app.core.bot.keyboards.base import (
+    BaseReplyKeyboard,
+    BaseSubMenyReplyKeyboard,
+)
+from app.core.bot.messages.messages import (
+    MainMenuButtonsName,
+    SettingsMenuButtonsName,
+)
 from django.utils.translation import gettext as _
 
 
+class ChangeLanguageReplyKeyboard(BaseSubMenyReplyKeyboard):
+    def buttons_builder(self):
+        return [[KeyboardButton(text=_(lang)) for value, lang in UserLanguageChoices.choices]]
+
+
 @dataclass
-class ReplyMainMenuKeyboard(BaseReplyKeyboard):
+class SettingsMenuReplyKeyboard(BaseSubMenyReplyKeyboard):
+    full_menu: bool = field(default=False)
+
+    @staticmethod
+    def _base_menu_buttons():
+        return [[KeyboardButton(text=_(SettingsMenuButtonsName.CHANGE_LANGUAGE))]]
+
+    @staticmethod
+    def _full_menu_buttons():
+        return [[KeyboardButton(text=_(SettingsMenuButtonsName.CHANGE_LANGUAGE))]]
+
+    def buttons_builder(self):
+        return (
+            self._base_menu_buttons() if not self.full_menu
+            else self._full_menu_buttons()
+        )
+
+
+@dataclass
+class MainMenuReplyKeyboard(BaseReplyKeyboard):
     full_menu: bool = field(default=False)
 
     @staticmethod
@@ -22,11 +53,10 @@ class ReplyMainMenuKeyboard(BaseReplyKeyboard):
 
     @staticmethod
     def _full_menu_buttons():
-        return [
-            [KeyboardButton(text=_(MainMenuButtonsName.SETTINGS))],
-        ]
+        return [[KeyboardButton(text=_(MainMenuButtonsName.SETTINGS))]]
 
     def buttons_builder(self):
-        if not self.full_menu:
-            return self._base_menu_buttons()
-        return self._full_menu_buttons()
+        return (
+            self._base_menu_buttons() if not self.full_menu
+            else self._full_menu_buttons()
+        )

@@ -50,6 +50,8 @@ class UserFunnelText(IntegerChoices):
 
 class BotMessagesText:
     SELECT_LANG = _('Please select a language')
+    INVALID_LANGUAGE = _('Invalid language. Please, retry again')
+    SUCCESS_CHANGE_LANGUAGE = _('The interface language has been successfully changed ✅')
     FUNNEL_COMPLETED = _(
         'Thank you for watching our promo materials. '
         'Now the main functionality of the bot is available to you, '
@@ -66,8 +68,15 @@ class BotMessagesText:
         'To get access to the full functionality of the bot, '
         'you need to view the promo materials that we have prepared especially for you!'
     )
+    SETTINGS_MENU = _('Settings menu ⚙️')
+    MAIN_MENU = _('Main menu ⏬')
 
 
 class MainMenuButtonsName:
-    SETTINGS = _('Settings ⚙️')
+    SETTINGS = _('Settings')
     SHOW_PROMO = _('Show promo materials')
+    MAIN_MENU = _('Main menu')
+
+
+class SettingsMenuButtonsName:
+    CHANGE_LANGUAGE = _('Change language')
