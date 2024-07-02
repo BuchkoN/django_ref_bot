@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 16:36+0300\n"
+"POT-Creation-Date: 2024-07-02 17:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,15 +165,19 @@ msgstr ""
 msgid "Please select a language"
 msgstr "Пожалуйста, выберите язык"
 
-#: app/core/bot/messages/messages.py:53
-msgid "Invalid language. Please, retry again"
-msgstr "Неверный язык. Пожалуйста, повторите попытку еще раз"
-
 #: app/core/bot/messages/messages.py:54
+msgid ""
+"Invalid language.\n"
+"Please, retry again 🔁"
+msgstr ""
+"Неверный язык.\n"
+"Пожалуйста, повторите попытку еще раз 🔁"
+
+#: app/core/bot/messages/messages.py:57
 msgid "The interface language has been successfully changed ✅"
 msgstr "Язык интерфейса был успешно изменен ✅"
 
-#: app/core/bot/messages/messages.py:56
+#: app/core/bot/messages/messages.py:59
 msgid ""
 "Thank you for watching our promo materials. Now the main functionality of "
 "the bot is available to you, which you can familiarize yourself with in the "
@@ -182,11 +186,11 @@ msgstr ""
 "Спасибо что просмотрели наши промо-материалы. Теперь вам доступен основной "
 "функционал бота с которым вы можете ознакомиться в меню 👏"
 
-#: app/core/bot/messages/messages.py:60
+#: app/core/bot/messages/messages.py:63
 msgid "We are glad to see you back 🤝"
 msgstr "Мы рады видеть вас снова 🤝"
 
-#: app/core/bot/messages/messages.py:62
+#: app/core/bot/messages/messages.py:65
 msgid ""
 "We are glad to see you back 🤝\n"
 "To get access to the full functionality of the bot, you need to view the "
@@ -196,7 +200,7 @@ msgstr ""
 "Чтобы получить доступ к полному функционалу бота, необходимо просмотреть "
 "промо материалы, которые мы специально для тебя подготовили!"
 
-#: app/core/bot/messages/messages.py:67
+#: app/core/bot/messages/messages.py:70
 msgid ""
 "Welcome 🤝\n"
 "To get access to the full functionality of the bot, you need to view the "
@@ -206,27 +210,27 @@ msgstr ""
 "Чтобы получить доступ к полному функционалу бота, необходимо просмотреть "
 "промо материалы, которые мы специально для тебя подготовили!"
 
-#: app/core/bot/messages/messages.py:71
+#: app/core/bot/messages/messages.py:74
 msgid "Settings menu ⚙️"
 msgstr "Меню настроек ⚙️"
 
-#: app/core/bot/messages/messages.py:72
+#: app/core/bot/messages/messages.py:75
 msgid "Main menu ⏬"
 msgstr "Главное меню ⏬"
 
-#: app/core/bot/messages/messages.py:76
+#: app/core/bot/messages/messages.py:79
 msgid "Settings"
 msgstr "Настройки"
 
-#: app/core/bot/messages/messages.py:77
+#: app/core/bot/messages/messages.py:80
 msgid "Show promo materials"
 msgstr "Показать промо-материалы"
 
-#: app/core/bot/messages/messages.py:78
+#: app/core/bot/messages/messages.py:81
 msgid "Main menu"
 msgstr "Главное меню"
 
-#: app/core/bot/messages/messages.py:82
+#: app/core/bot/messages/messages.py:85
 msgid "Change language"
 msgstr "Язык интерфейса"
 
