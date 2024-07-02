@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 17:22+0300\n"
+"POT-Creation-Date: 2024-07-02 18:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -210,29 +210,54 @@ msgstr ""
 "Чтобы получить доступ к полному функционалу бота, необходимо просмотреть "
 "промо материалы, которые мы специально для тебя подготовили!"
 
-#: app/core/bot/messages/messages.py:74
+#: app/core/bot/messages/messages.py:75
+msgid ""
+"Your referral link:\n"
+"{}\n\n"
+"By clicking on this link in our telegram bot, the new user will "
+"automatically become your referral and you will receive a bonus from his "
+"purchases."
+msgstr ""
+"Ваша реферальная ссылка:\n"
+"{}\n\n"
+"Перейдя по этой ссылке в наш телеграмм бот, новый пользователь автоматически "
+"станет вашим рефералом и вы будете получать бонус с его покупок."
+
+#: app/core/bot/messages/messages.py:80
 msgid "Settings menu ⚙️"
 msgstr "Меню настроек ⚙️"
 
-#: app/core/bot/messages/messages.py:75
+#: app/core/bot/messages/messages.py:81
 msgid "Main menu ⏬"
 msgstr "Главное меню ⏬"
 
-#: app/core/bot/messages/messages.py:79
+#: app/core/bot/messages/messages.py:82
+msgid "Referral menu 🧑‍🤝‍🧑"
+msgstr "Меню реферальной системы 🧑‍🤝‍🧑"
+
+#: app/core/bot/messages/messages.py:86
 msgid "Settings"
 msgstr "Настройки"
 
-#: app/core/bot/messages/messages.py:80
+#: app/core/bot/messages/messages.py:87
 msgid "Show promo materials"
 msgstr "Показать промо-материалы"
 
-#: app/core/bot/messages/messages.py:81
+#: app/core/bot/messages/messages.py:88
 msgid "Main menu"
 msgstr "Главное меню"
 
-#: app/core/bot/messages/messages.py:85
+#: app/core/bot/messages/messages.py:89
+msgid "Referrals system"
+msgstr "Реферальная система"
+
+#: app/core/bot/messages/messages.py:93
 msgid "Change language"
 msgstr "Язык интерфейса"
+
+#: app/core/bot/messages/messages.py:97
+msgid "Get referral link"
+msgstr "Получить реферальную ссылку"
 
 #: app/core/products/admin.py:35
 msgid "Description"

@@ -145,3 +145,7 @@ TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 TELEGRAM_BOT_WEBHOOK_URL = os.environ.get('URI_API_PREFIX', '') + 'webhook/telegram'
 TELEGRAM_ALLOWED_NETWORKS = ['149.154.160.0/20', '91.108.4.0/22']
 TELEGRAM_REDIS_FSM_URL = os.environ.get('REDIS_BOT_FSM_URL', '')
+TELEGRAM_BOT_NAME = os.environ.get('TELEGRAM_BOT_NAME', '')
+
+# Application settings
+REFERRAL_CODE_PREFIX = "ref"

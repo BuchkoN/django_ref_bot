@@ -6,19 +6,23 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from app.core.accounts.models import UserLanguageChoices
 from app.core.accounts.repositories.repositories import UsersRepository
+from app.core.bot.filters import FunnelPassedUserFilter
 from app.core.bot.keyboards.menu import (
     ChangeLanguageReplyKeyboard,
     MainMenuReplyKeyboard,
+    ReferralMenuReplyKeyboard,
     SettingsMenuReplyKeyboard,
 )
 from app.core.bot.keyboards.start import InlineFunnelNavigationKeyboard
 from app.core.bot.messages.messages import (
     BotMessagesText,
     MainMenuButtonsName,
+    ReferralMenuButtonsName,
     SettingsMenuButtonsName,
     UserFunnelText,
 )
 from app.core.bot.states.menu import LanguageSelectionFSM
+from django.contrib.auth import get_user_model
 from django.utils import translation
 from django.utils.translation import (
     gettext as _,
@@ -27,6 +31,7 @@ from django.utils.translation import (
 
 
 router = Router()
+User = get_user_model()
 
 
 @router.message(F.text == gettext_lazy(MainMenuButtonsName.MAIN_MENU))
@@ -90,3 +95,25 @@ async def menu_select_language(message: Message, state: FSMContext):
             reply_markup=MainMenuReplyKeyboard(full_menu=user.is_funnel_passed).get_keyboard()
         )
     await state.clear()
+
+
+@router.message(
+    FunnelPassedUserFilter(),
+    F.text == gettext_lazy(MainMenuButtonsName.REFERRAL_MENU)
+)
+async def menu_referral(message: Message, user: User):
+    await message.answer(
+        text=_(BotMessagesText.REFERRAL_MENU),
+        reply_markup=ReferralMenuReplyKeyboard().get_keyboard()
+    )
+
+
+@router.message(
+    FunnelPassedUserFilter(),
+    F.text == gettext_lazy(ReferralMenuButtonsName.GET_REF_LINK)
+)
+async def menu_get_referral_link(message: Message, user: User):
+    await message.answer(
+        text=_(BotMessagesText.REFERRAL_LINK).format(user.referral_link),
+        reply_markup=MainMenuReplyKeyboard(full_menu=True).get_keyboard()
+    )

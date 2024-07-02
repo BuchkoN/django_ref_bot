@@ -11,9 +11,15 @@ from app.core.bot.keyboards.base import (
 )
 from app.core.bot.messages.messages import (
     MainMenuButtonsName,
+    ReferralMenuButtonsName,
     SettingsMenuButtonsName,
 )
 from django.utils.translation import gettext as _
+
+
+class ReferralMenuReplyKeyboard(BaseSubMenyReplyKeyboard):
+    def buttons_builder(self):
+        return [[KeyboardButton(text=_(ReferralMenuButtonsName.GET_REF_LINK))]]
 
 
 class ChangeLanguageReplyKeyboard(BaseSubMenyReplyKeyboard):
@@ -53,7 +59,10 @@ class MainMenuReplyKeyboard(BaseReplyKeyboard):
 
     @staticmethod
     def _full_menu_buttons():
-        return [[KeyboardButton(text=_(MainMenuButtonsName.SETTINGS))]]
+        return [
+            [KeyboardButton(text=_(MainMenuButtonsName.SETTINGS))],
+            [KeyboardButton(text=_(MainMenuButtonsName.REFERRAL_MENU))]
+        ]
 
     def buttons_builder(self):
         return (

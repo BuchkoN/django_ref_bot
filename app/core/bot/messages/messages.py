@@ -71,15 +71,27 @@ class BotMessagesText:
         'To get access to the full functionality of the bot, '
         'you need to view the promo materials that we have prepared especially for you!'
     )
+    REFERRAL_LINK = _(
+        'Your referral link:\n'
+        '{}\n\n'
+        'By clicking on this link in our telegram bot, the new user will automatically '
+        'become your referral and you will receive a bonus from his purchases.'
+    )
     SETTINGS_MENU = _('Settings menu ⚙️')
     MAIN_MENU = _('Main menu ⏬')
+    REFERRAL_MENU = _('Referral menu 🧑‍🤝‍🧑')
 
 
 class MainMenuButtonsName:
     SETTINGS = _('Settings')
     SHOW_PROMO = _('Show promo materials')
     MAIN_MENU = _('Main menu')
+    REFERRAL_MENU = _('Referrals system')
 
 
 class SettingsMenuButtonsName:
     CHANGE_LANGUAGE = _('Change language')
+
+
+class ReferralMenuButtonsName:
+    GET_REF_LINK = _('Get referral link')

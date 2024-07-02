@@ -77,3 +77,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_funnel_passed(self) -> bool:
         return self.status != UserStatusChoices.funnel_not_passed
+
+    @property
+    def referral_link(self) -> str:
+        return (
+            f"https://t.me/{settings.TELEGRAM_BOT_NAME}"
+            f"?start={settings.REFERRAL_CODE_PREFIX}_{self.oid}"
+        )
