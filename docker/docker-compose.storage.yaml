@@ -13,3 +13,7 @@ services:
       - 5432:5432
     env_file:
       - ../.env
+
+  redis_app:
+    image: redis:7.0
+    container_name: redis_app
