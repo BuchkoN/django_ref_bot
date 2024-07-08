@@ -3,10 +3,7 @@ import logging
 
 from aiogram.types import Update
 from app.api.utils import telegram_webhook_verify
-from app.core.bot.services.main import (
-    bot_event_loop,
-    init_bot,
-)
+from app.core.bot.services.main import init_bot
 from django.http import (
     HttpRequest,
     HttpResponse,
@@ -19,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 @csrf_exempt
-def telegram(request: HttpRequest):
+async def telegram(request: HttpRequest):
     if request.method != 'POST' or not telegram_webhook_verify(request):
         logger.warning(
             f'Unexpected request to telegram webhook from '
@@ -27,7 +24,7 @@ def telegram(request: HttpRequest):
         )
         return HttpResponseNotAllowed(permitted_methods=['POST'])
 
-    bot, dp = init_bot()
+    bot, dp = await init_bot()
     upd = Update(**json.loads(request.body))
-    bot_event_loop.run_until_complete(dp.feed_update(bot, upd))
+    await dp.feed_update(bot, upd)
     return HttpResponse(status=200)

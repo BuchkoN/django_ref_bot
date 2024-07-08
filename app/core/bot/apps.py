@@ -5,7 +5,3 @@ class BotConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'app.core.bot'
     verbose_name = 'Telegram Bot'
-
-    def ready(self):
-        from app.core.bot.services.main import init_bot
-        init_bot()

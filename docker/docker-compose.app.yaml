@@ -17,4 +17,4 @@ services:
     depends_on:
       - storage_app
       - redis_app
-    command: "python manage.py runserver 0.0.0.0:8000"
+    command: "uvicorn app.project.asgi:application --host 0.0.0.0 --workers 4 --lifespan on"
